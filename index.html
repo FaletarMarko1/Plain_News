@@ -1,36 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="script.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <title>PLain_News</title>
-</head>
-<body>
+  </head>
+  <body>
     <nav>
-        <input type="checkbox" id="check">
-        <label for="check" class="checkbtn">Menu</label>
-        <label class="logo">Plain_News</label>
-        <ul>
-            <li><a class="active" href="#">News</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
+      <input type="checkbox" id="check" />
+      <label for="check" class="checkbtn">Menu</label>
+      <label class="dropLogo">Plain_News</label>
+      <ul>
+        <li><label class="logo">Plain_News</label></li>
+        <li><a class="active" href="#">HOME</a></li>
+        <li><a href="#">NEWS</a></li>
+        <li><a href="#">VIDEO</a></li>
+        <li><a href="#">ABOUT</a></li>
+      </ul>
     </nav>
 
     <div class="container">
-        <div>
-            <p>werwerwe</p>
-        </div>
-        <div>
-            <p>werwer</p>
-        </div>    
+      <section>
+        <header>
+          <h1>Plain_News</h1>
+        </header>
+        <article>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
+            ducimus soluta accusamus nam deleniti id sunt ratione nemo nihil?
+            Accusamus repellat pariatur veniam voluptatibus obcaecati debitis
+            adipisci eum, cupiditate aliquid?
+          </p>
+        </article>
+      </section>
     </div>
 
     <div class="footer">
-        <p>Copyright 2023 Marko Faletar</p>
+      <ul>
+        <li><a href="#">Copyright 2023 Marko Faletar</a></li>
+        <li><a href="#">Github [faletar.marko@gmail.com]</a></li>
+      </ul>
     </div>
-</body>
+
+    <script>
+      const checkbox = document.getElementById("check");
+      checkbox.addEventListener("change", function () {
+        if (this.checked) {
+          //blokira scroll kada je otvoren dropdown menu
+          document.querySelector("body").style.overflowX = "hidden";
+          document.querySelector("body").style.overflowY = "hidden";
+        } else {
+          //odblokira scroll kada je zatvoren dropdown menu
+          document.querySelector("body").style.overflowX = "visible";
+          document.querySelector("body").style.overflowY = "visible";
+        }
+      });
+    </script>
+  </body>
 </html>
