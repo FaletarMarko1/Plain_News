@@ -67,7 +67,7 @@ a:hover {
   color: white;
   float: right;
   line-height: 80px;
-  margin-right: 40px;
+  margin-right: 15%;
   cursor: pointer;
   display: none;
 }
@@ -90,7 +90,7 @@ a:hover {
     position: fixed;
     width: 100%;
     height: 100vh;
-    background: blue;
+    background: white;
     top: 80px;
     left: -100%;
     text-align: center;
@@ -105,6 +105,7 @@ a:hover {
   }
   nav ul li a {
     font-size: 20px;
+    color: black;
   }
   label.logo {
     display: none;
@@ -116,7 +117,7 @@ a:hover {
   a:hover,
   a.active {
     background: none;
-    color: #0082e6;
+    color: red;
   }
   #check:checked ~ ul {
     left: 0;
@@ -156,7 +157,7 @@ img {
   width: 100%;
   height: 100%;
   text-align: left;
-  padding: 25px 75px 50px 75px;
+  padding: 25px 5% 50px 5%;
 }
 
 header {
@@ -182,7 +183,7 @@ hr {
   margin: auto;
   display: flex;
   flex-wrap: nowrap;
-  padding: 40px;
+  padding: 40px 0px 40px 0px;
   justify-content: space-between;
 }
 .footer ul li {
