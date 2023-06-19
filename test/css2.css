@@ -22,19 +22,20 @@ body {
     margin-left: 15%;
   }
   nav ul li {
-    display: inline-block;
+    display: block;
+    float: left;
     line-height: 50px;
-    margin: 0 5px;
+    margin: 0 0px;
   }
   nav ul li a {
     color: white;
     font-size: 27px;
-    padding: 7px 13px;
-    border-radius: 3px;
+    padding: 9px 13px;
+    border-radius: 0px;
     text-transform: uppercase;
   }
   label.logo {
-    color: white;
+    color: red;
     font-size: 17px;
     line-height: 50px;
     padding: 0 50px 0 0;
@@ -53,6 +54,9 @@ body {
     text-transform: uppercase;
   }
   
+  #logo22{
+    opacity: 1;
+  }
   a.active,
   a:hover {
     color: red;
@@ -109,6 +113,7 @@ body {
     }
     nav ul li {
       display: block;
+      float: unset;
       margin: 50px 0;
       line-height: 30px;
       transition: 0.5s;
