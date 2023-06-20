@@ -155,9 +155,12 @@ img {
 }
 .tekst {
   width: 100%;
-  height: 100%;
   text-align: left;
   padding: 25px 5% 50px 5%;
+}
+.tekst p {
+  word-break: normal;
+  white-space: normal;
 }
 
 header {

@@ -1,3 +1,15 @@
+<?php
+if (isset($_POST['title']) && isset($_POST['category']) && isset($_POST['slika']) && isset($_POST['about']) && isset($_POST['content']) && isset($_POST['submit'])) {
+    $naslov = $_POST['title'];
+    $kategorija = $_POST['category'];
+    $slika = $_POST['slika'];
+    $kratkiSadrzaj = $_POST['about'];
+    $sadrzaj = $_POST['content'];
+    
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,13 +36,32 @@
                 <li><a href="#">ABOUT</a></li>
             </ul>
         </nav>
-    
+
         <div class="container">
             <header>
-                <h1>NEWS: ova plaza je jako lijepa</h1>
+                <h1>
+                    <?php echo $naslov; ?>
+                </h1>
                 <hr />
             </header>
             <section>
+                <article>
+                    <div class="slike">
+                        <?php echo "<img src='images/$slika' alt='slika vijesti' />" ?>
+
+                    </div>
+                    <div class="tekst">
+                        <p>
+                            <?php echo $sadrzaj; ?>
+                        </p>
+                </article>
+            </section>
+
+            <header>
+                <h1>NEWS</h1>
+                <hr>
+            </header>
+            <section class="info">
                 <article>
                     <div class="slike">
                         <img src="images/beach.jpeg" alt="news1" />
@@ -40,157 +71,40 @@
                             Lorem ipsum dolor sit amet consectetur adipisicing elit.
                             Laboriosam ducimus soluta accusamus nam deleniti id sunt ratione
                             nemo nihil? Accusamus repellat pariatur veniam voluptatibus
-                            obcaecati debitis adipisci eum, cupiditate aliquid? Lorem ipsum
-                            dolor sit amet consectetur adipisicing elit. Laboriosam ducimus
-                            soluta accusamus nam deleniti id sunt ratione nemo nihil?
-                            Accusamus repellat pariatur veniam voluptatibus obcaecati debitis
-                            adipisci eum, cupiditate aliquid? Lorem ipsum dolor sit amet
-                            consectetur adipisicing elit. Laboriosam ducimus soluta accusamus
-                            nam deleniti id sunt ratione nemo nihil? Accusamus repellat
-                            pariatur veniam voluptatibus obcaecati debitis adipisci eum,
-                            cupiditate aliquid? Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Laboriosam ducimus soluta accusamus nam deleniti
-                            id sunt ratione nemo nihil? Accusamus repellat pariatur veniam
-                            voluptatibus obcaecati debitis adipisci eum, cupiditate aliquid?
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Laboriosam ducimus soluta accusamus nam deleniti id sunt ratione
-                            nemo nihil? Accusamus repellat pariatur veniam voluptatibus
-                            obcaecati debitis adipisci eum, cupiditate aliquid? Lorem ipsum
-                            dolor sit amet consectetur adipisicing elit. Laboriosam ducimus
-                            soluta accusamus nam deleniti id sunt ratione nemo nihil?
-                            Accusamus repellat pariatur veniam voluptatibus obcaecati debitis
-                            adipisci eum, cupiditate aliquid?
+                            obcaecati debitis adipisci eum, cupiditate aliquid?
                         </p>
-                        <br />
+                    </div>
+                </article>
+                <article>
+                    <div class="slike">
+                        <img src="images/beach.jpeg" alt="news1" />
+                    </div>
+                    <div class="tekst">
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit.
                             Laboriosam ducimus soluta accusamus nam deleniti id sunt ratione
                             nemo nihil? Accusamus repellat pariatur veniam voluptatibus
-                            obcaecati debitis adipisci eum, cupiditate aliquid? Lorem ipsum
-                            dolor sit amet consectetur adipisicing elit. Laboriosam ducimus
-                            soluta accusamus nam deleniti id sunt ratione nemo nihil?
-                            Accusamus repellat pariatur veniam voluptatibus obcaecati debitis
-                            adipisci eum, cupiditate aliquid? Lorem ipsum dolor sit amet
-                            consectetur adipisicing elit. Laboriosam ducimus soluta accusamus
-                            nam deleniti id sunt ratione nemo nihil? Accusamus repellat
-                            pariatur veniam voluptatibus obcaecati debitis adipisci eum,
-                            cupiditate aliquid? Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Laboriosam ducimus soluta accusamus nam deleniti
-                            id sunt ratione nemo nihil? Accusamus repellat pariatur veniam
-                            voluptatibus obcaecati debitis adipisci eum, cupiditate aliquid?
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Laboriosam ducimus soluta accusamus nam deleniti id sunt ratione
-                            nemo nihil? Accusamus repellat pariatur veniam voluptatibus
-                            obcaecati debitis adipisci eum, cupiditate aliquid? Lorem ipsum
-                            dolor sit amet consectetur adipisicing elit. Laboriosam ducimus
-                            soluta accusamus nam deleniti id sunt ratione nemo nihil?
-                            Accusamus repellat pariatur veniam voluptatibus obcaecati debitis
-                            adipisci eum, cupiditate aliquid?
+                            obcaecati debitis adipisci eum, cupiditate aliquid?
                         </p>
-                        <br />
+                    </div>
+                </article>
+                <article>
+                    <div class="slike">
+                        <img src="images/beach.jpeg" alt="news1" />
+                    </div>
+                    <div class="tekst">
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit.
                             Laboriosam ducimus soluta accusamus nam deleniti id sunt ratione
                             nemo nihil? Accusamus repellat pariatur veniam voluptatibus
-                            obcaecati debitis adipisci eum, cupiditate aliquid? Lorem ipsum
-                            dolor sit amet consectetur adipisicing elit. Laboriosam ducimus
-                            soluta accusamus nam deleniti id sunt ratione nemo nihil?
-                            Accusamus repellat pariatur veniam voluptatibus obcaecati debitis
-                            adipisci eum, cupiditate aliquid? Lorem ipsum dolor sit amet
-                            consectetur adipisicing elit. Laboriosam ducimus soluta accusamus
-                            nam deleniti id sunt ratione nemo nihil? Accusamus repellat
-                            pariatur veniam voluptatibus obcaecati debitis adipisci eum,
-                            cupiditate aliquid? Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Laboriosam ducimus soluta accusamus nam deleniti
-                            id sunt ratione nemo nihil? Accusamus repellat pariatur veniam
-                            voluptatibus obcaecati debitis adipisci eum, cupiditate aliquid?
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Laboriosam ducimus soluta accusamus nam deleniti id sunt ratione
-                            nemo nihil? Accusamus repellat pariatur veniam voluptatibus
-                            obcaecati debitis adipisci eum, cupiditate aliquid? Lorem ipsum
-                            dolor sit amet consectetur adipisicing elit. Laboriosam ducimus
-                            soluta accusamus nam deleniti id sunt ratione nemo nihil?
-                            Accusamus repellat pariatur veniam voluptatibus obcaecati debitis
-                            adipisci eum, cupiditate aliquid?
-                        </p>
-                        <br />
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Laboriosam ducimus soluta accusamus nam deleniti id sunt ratione
-                            nemo nihil? Accusamus repellat pariatur veniam voluptatibus
-                            obcaecati debitis adipisci eum, cupiditate aliquid? Lorem ipsum
-                            dolor sit amet consectetur adipisicing elit. Laboriosam ducimus
-                            soluta accusamus nam deleniti id sunt ratione nemo nihil?
-                            Accusamus repellat pariatur veniam voluptatibus obcaecati debitis
-                            adipisci eum, cupiditate aliquid? Lorem ipsum dolor sit amet
-                            consectetur adipisicing elit. Laboriosam ducimus soluta accusamus
-                            nam deleniti id sunt ratione nemo nihil? Accusamus repellat
-                            pariatur veniam voluptatibus obcaecati debitis adipisci eum,
-                            cupiditate aliquid? Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Laboriosam ducimus soluta accusamus nam deleniti
-                            id sunt ratione nemo nihil? Accusamus repellat pariatur veniam
-                            voluptatibus obcaecati debitis adipisci eum, cupiditate aliquid?
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Laboriosam ducimus soluta accusamus nam deleniti id sunt ratione
-                            nemo nihil? Accusamus repellat pariatur veniam voluptatibus
-                            obcaecati debitis adipisci eum, cupiditate aliquid? Lorem ipsum
-                            dolor sit amet consectetur adipisicing elit. Laboriosam ducimus
-                            soluta accusamus nam deleniti id sunt ratione nemo nihil?
-                            Accusamus repellat pariatur veniam voluptatibus obcaecati debitis
-                            adipisci eum, cupiditate aliquid?
+                            obcaecati debitis adipisci eum, cupiditate aliquid?
                         </p>
                     </div>
                 </article>
             </section>
-
-            <header>
-                <h1>NEWS</h1>
-                <hr>
-              </header>
-              <section class="info">
-                <article>
-                  <div class="slike">
-                    <img src="images/beach.jpeg" alt="news1" />
-                  </div>
-                  <div class="tekst">
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Laboriosam ducimus soluta accusamus nam deleniti id sunt ratione
-                      nemo nihil? Accusamus repellat pariatur veniam voluptatibus
-                      obcaecati debitis adipisci eum, cupiditate aliquid?
-                    </p>
-                  </div>
-                </article>
-                <article>
-                  <div class="slike">
-                    <img src="images/beach.jpeg" alt="news1" />
-                  </div>
-                  <div class="tekst">
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Laboriosam ducimus soluta accusamus nam deleniti id sunt ratione
-                      nemo nihil? Accusamus repellat pariatur veniam voluptatibus
-                      obcaecati debitis adipisci eum, cupiditate aliquid?
-                    </p>
-                  </div>
-                </article>
-                <article>
-                  <div class="slike">
-                    <img src="images/beach.jpeg" alt="news1" />
-                  </div>
-                  <div class="tekst">
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Laboriosam ducimus soluta accusamus nam deleniti id sunt ratione
-                      nemo nihil? Accusamus repellat pariatur veniam voluptatibus
-                      obcaecati debitis adipisci eum, cupiditate aliquid?
-                    </p>
-                  </div>
-                </article>
-              </section>
         </div>
     </div>
-    
+
 
     <div class="footer">
         <ul>
