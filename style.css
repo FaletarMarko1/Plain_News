@@ -63,7 +63,6 @@ nav .active {
   color: red;
 }
 
-
 .checkbtn {
   font-size: 30px;
   font-weight: 600;
@@ -77,6 +76,106 @@ nav .active {
 #check {
   display: none;
 }
+
+.container {
+  width: 70%;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  min-height: 100vh;
+  background-color: gainsboro;
+}
+section {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+  padding: 20px 0px 20px 20px;
+}
+article {
+  margin: 20px 20px 20px 0px;
+  flex: 20%;
+  justify-content: space-around;
+  background-color: white;
+}
+img {
+  max-width: 100%;
+  width: 100%;
+}
+.tekst {
+  width: 100%;
+  text-align: left;
+  padding: 5px;
+}
+
+header {
+  padding: 20px 20px 0px 20px;
+}
+hr {
+  margin: auto;
+  height: 2px;
+  border-width: 0;
+  color: gray;
+  background-color: gray;
+}
+
+form {
+  width: 60%;
+  margin: auto;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 20px;
+}
+.form-item {
+  width: 100%;
+  margin: auto;
+  text-align: left;
+  padding: 10px 0 10px 0;
+}
+.form-item input,
+textarea,
+select {
+  width: 100%;
+  padding: 5px;
+  margin: 5px 0px;
+  border: 1px solid gray;
+  border-radius: 3px;
+}
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+.checkbox {
+  width: 100%;
+  display: flex;
+}
+.checkbox label {
+  width: 100%;
+  text-align: left;
+}
+.form-item button {
+  width: 50%;
+  padding: 5px;
+}
+
+.footer {
+  background-color: red;
+  width: 100%;
+  color: white;
+  text-align: center;
+  margin-top: auto;
+}
+.footer ul {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 40px 0px 40px 0px;
+  justify-content: space-between;
+}
+.footer ul li {
+  margin: 0 10px;
+}
+
 @media (max-width: 1025px) {
   label.logo {
     padding-left: 0px;
@@ -125,37 +224,15 @@ nav .active {
   #check:checked ~ ul {
     left: 0;
   }
+  form {
+    width: 80%;
+    margin: auto;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 20px;
+  }
 }
 
-.container {
-  width: 70%;
-  margin: auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  min-height: 100vh;
-  background-color: gainsboro;
-}
-section {
-  display: flex;
-  flex-wrap: wrap;
-  text-align: left;
-  padding: 20px 0px 20px 20px;
-}
-article {
-  margin: 20px 20px 20px 0px;
-  flex: 20%;
-  justify-content: space-around;
-  background-color: white;
-}
-img {
-  max-width: 100%;
-  width: 100%;
-}
-.tekst {
-  width: 100%;
-  text-align: left;
-  padding: 5px;
-}
 @media (max-width: 1225px) {
   article {
     flex: 40%;
@@ -163,42 +240,8 @@ img {
   }
 }
 @media (max-width: 805px) {
-    article {
-      flex: 100%;
-      transition: 0.3s;
-    }
+  article {
+    flex: 100%;
+    transition: 0.3s;
   }
-
-header {
-  padding: 20px 20px 0px 20px;
-}
-hr {
-  margin: auto;
-  height: 2px;
-  border-width: 0;
-  color: gray;
-  background-color: gray;
-}
-
-
-
-
-
-.footer {
-  background-color: red;
-  width: 100%;
-  color: white;
-  text-align: center;
-  margin-top: auto;
-}
-.footer ul {
-  width: 70%;
-  margin: auto;
-  display: flex;
-  flex-wrap: nowrap;
-  padding: 40px 0px 40px 0px;
-  justify-content: space-between;
-}
-.footer ul li {
-  margin: 0 10px;
 }
