@@ -33,7 +33,6 @@
       <hr>
     </header>
 
-    
   </div>
 
   <div class="footer">
