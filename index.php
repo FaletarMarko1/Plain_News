@@ -13,7 +13,7 @@
 <body>
   <img id="logo22" src="images/PNEWS.png" alt="logo"
     style="position: fixed; z-index: 100; width: 180px; height: 100px; margin-left: 15%; margin-top: -50px;" />
-  <nav>
+  <nav role="navigation">
     <input type="checkbox" id="check" />
     <label for="check" class="checkbtn">Menu</label>
     <label class="dropLogo">Plain_News</label>

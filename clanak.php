@@ -1,7 +1,8 @@
 <?php
 include 'connect.php';
 define('UPLPATH', 'images/');
-$query = "SELECT * FROM clanci WHERE id=" . $_GET['id'];"";
+$query = "SELECT * FROM clanci WHERE id=" . $_GET['id'];
+"";
 $result = mysqli_query($dbc, $query);
 $row = mysqli_fetch_array($result);
 ?>
@@ -27,35 +28,37 @@ $row = mysqli_fetch_array($result);
       <label class="dropLogo">Plain_News</label>
       <ul>
         <li><label class="logo">Plain_Newssssssssssss</label></li>
-        <li class="active"><a class="active" href="#">HOME</a></li>
-        <li><a href="#">SPORT</a></li>
-        <li><a href="#">CULTURE</a></li>
-        <li><a href="#">SCIENCE</a></li>
-        <li><a href="#">ADMIN</a></li>
+        <li class="active"><a class="active" href="index.php">HOME</a></li>
+        <li><a href="kategorija.php?id=sport">SPORT</a></li>
+        <li><a href="kategorija.php?id=culture">CULTURE</a></li>
+        <li><a href="kategorija.php?id=science">SCIENCE</a></li>
+        <li><a href="administrator.php">ADMIN</a></li>
       </ul>
     </nav>
 
     <div class="container">
       <header>
-        <h1>NEWS: <?php echo "<span>".$row['naslov']."</span>"; ?></h1>
+        <h1>NEWS:
+          <?php echo "<span>" . $row['naslov'] . "</span>"; ?>
+        </h1>
         <hr />
       </header>
       <section>
         <article>
           <div class="slike">
-          <?php echo '<img class="cover slikaClanak" src="' . UPLPATH . $row['slika'] . '" alt="news1" />';?>
+            <?php echo '<img class="cover slikaClanak" src="' . UPLPATH . $row['slika'] . '" alt="news1" />'; ?>
           </div>
           <div class="tekst">
             <p>
               <?php
-                echo $row['sazetak'];
+              echo $row['sazetak'];
               ?>
             </p>
           </div>
           <div class="tekst">
             <p>
               <?php
-                echo $row['tekst'];
+              echo $row['tekst'];
               ?>
             </p>
           </div>

@@ -25,11 +25,11 @@
         <label class="dropLogo">Plain_News</label>
         <ul>
             <li><label class="logo">Plain_Newssssssssssss</label></li>
-            <li class="active"><a class="active" href="#">HOME</a></li>
-            <li><a href="#">SPORT</a></li>
-            <li><a href="#">CULTURE</a></li>
-            <li><a href="#">SCIENCE</a></li>
-            <li><a href="#">ADMIN</a></li>
+            <li class="active"><a class="active" href="index.php">HOME</a></li>
+            <li><a href="kategorija.php?id=sport">SPORT</a></li>
+            <li><a href="kategorija.php?id=culture">CULTURE</a></li>
+            <li><a href="kategorija.php?id=science">SCIENCE</a></li>
+            <li><a href="administrator.php">ADMIN</a></li>
         </ul>
     </nav>
 
@@ -39,7 +39,7 @@
             <hr />
         </header>
 
-        <form action = "skripta.php" method="POST" enctype="multipart/form-data">
+        <form action="skripta.php" method="POST" enctype="multipart/form-data">
             <div class="form-item">
                 <label for="title">Naslov vijesti</label>
                 <div class="form-field">
@@ -61,7 +61,7 @@
             <div class="form-item">
                 <label for="slika">Slika: </label>
                 <div class="form-field">
-                    <input type="file" name="slika" accept="image/jpg,image/png,image/jpeg" required/>
+                    <input type="file" name="slika" accept="image/jpg,image/png,image/jpeg" required />
                 </div>
             </div>
             <div class="form-item">
@@ -69,13 +69,13 @@
                 <div class="form-field">
                     <select name="category" id="category" class="form-field-textual">
                         <option value="sport">SPORT</option>
-                        <option value="kultura">CULTURE</option>
-                        <option value="kultura">SCIENCE</option>
+                        <option value="culture">CULTURE</option>
+                        <option value="science">SCIENCE</option>
                     </select>
                 </div>
             </div>
             <div class="form-item checkbox">
-                <label for="archive">Prikaži na stranici:</label>
+                <label for="archive">Stavi u arhivu:</label>
                 <input type="checkbox" name="archive" />
             </div>
             <div class="form-item buttons">
