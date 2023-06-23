@@ -1,4 +1,26 @@
 <?php
+
+include 'connect.php';
+
+$naslov = $_POST['title'];
+$about = $_POST['about'];
+$content = $_POST['content'];
+$slika = $_FILES['slika']['name'];
+$category = $_POST['category'];
+if (isset($_POST['archive'])) {
+    $archive = 1;
+} else {
+    $archive = 0;
+}
+
+$query = "INSERT INTO clanci (naslov, sazetak, tekst, slika, kategorija, arhiva) VALUES ('$naslov', '$about', '$content', '$slika', '$category', '$archive')";
+
+$result = mysqli_query($dbc, $query) or die('Error querying database.');
+mysqli_close($dbc);
+
+
+
+
 if (isset($_POST['title']) && isset($_POST['category']) && isset($_POST['about']) && isset($_POST['content']) && isset($_POST['submit'])) {
     $naslov = $_POST['title'];
     $kategorija = $_POST['category'];
@@ -67,19 +89,21 @@ if ($uploadOk == 0) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="script.js"></script>
-    <link rel="stylesheet" type="text/css" href="styleClanak.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <title>PLain_News</title>
 </head>
 
 <body>
     <div class="main">
+        <img id="logo22" src="images/PNEWS.png" alt="logo"
+            style="position: fixed; z-index: 100; width: 180px; height: 100px; margin-left: 15%; margin-top: -50px;" />
         <nav>
             <input type="checkbox" id="check" />
             <label for="check" class="checkbtn">Menu</label>
             <label class="dropLogo">Plain_News</label>
             <ul>
-                <li><label class="logo">Plain_News</label></li>
-                <li><a class="active" href="#">HOME</a></li>
+                <li><label class="logo">Plain_Newssssssssssss</label></li>
+                <li class="active"><a class="active" href="#">HOME</a></li>
                 <li><a href="#">NEWS</a></li>
                 <li><a href="#">VIDEO</a></li>
                 <li><a href="#">ABOUT</a></li>
