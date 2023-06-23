@@ -39,23 +39,19 @@ $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 if (isset($_POST["submit"])) {
     $check = getimagesize($_FILES["slika"]["tmp_name"]);
     if ($check !== false) {
-        echo "File is an image - " . $check["mime"] . ".";
         $uploadOk = 1;
     } else {
-        echo "File is not an image.";
         $uploadOk = 0;
     }
 }
 
 // Check if file already exists
 if (file_exists($target_file)) {
-    echo "Sorry, file already exists.";
     $uploadOk = 0;
 }
 
 // Check file size
 if ($_FILES["slika"]["size"] > 5000000) {
-    echo "Sorry, your file is too large.";
     $uploadOk = 0;
 }
 
@@ -64,19 +60,16 @@ if (
     $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
     && $imageFileType != "gif"
 ) {
-    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
     $uploadOk = 0;
 }
 
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    echo "Sorry, your file was not uploaded.";
     // if everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["slika"]["tmp_name"], $target_file)) {
         echo "The file " . htmlspecialchars(basename($_FILES["slika"]["name"])) . " has been uploaded.";
     } else {
-        echo "Sorry, there was an error uploading your file.";
     }
 }
 ?>
@@ -90,7 +83,7 @@ if ($uploadOk == 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="script.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <title>PLain_News</title>
+    <title>Plain_News</title>
 </head>
 
 <body>
@@ -104,29 +97,39 @@ if ($uploadOk == 0) {
             <ul>
                 <li><label class="logo">Plain_Newssssssssssss</label></li>
                 <li class="active"><a class="active" href="#">HOME</a></li>
-                <li><a href="#">NEWS</a></li>
-                <li><a href="#">VIDEO</a></li>
-                <li><a href="#">ABOUT</a></li>
+                <li><a href="kategorija.php?id=sport">SPORT</a></li>
+                <li><a href="kategorija.php?id=culture">CULTURE</a></li>
+                <li><a href="kategorija.php?id=science">SCIENCE</a></li>
+                <li><a href="administrator.php">ADMIN</a></li>
             </ul>
         </nav>
 
         <div class="container">
             <header>
-                <h1>
-                    <?php echo $naslov; ?>
+                <h1>NEWS:
+                    <?php echo "<span>" . $naslov . "</span>"; ?>
                 </h1>
                 <hr />
             </header>
             <section>
                 <article>
                     <div class="slike">
-                        <?php echo "<img src='images/$slikaName' alt='slika vijesti' />" ?>
-
+                        <?php echo '<img class="cover slikaClanak" src="images/' . $slikaName . '" alt="news1" />'; ?>
                     </div>
                     <div class="tekst">
                         <p>
-                            <?php echo $sadrzaj; ?>
+                            <?php
+                            echo $kratkiSadrzaj;
+                            ?>
                         </p>
+                    </div>
+                    <div class="tekst">
+                        <p>
+                            <?php
+                            echo $sadrzaj;
+                            ?>
+                        </p>
+                    </div>
                 </article>
             </section>
 
@@ -135,45 +138,27 @@ if ($uploadOk == 0) {
                 <hr>
             </header>
             <section class="info">
-                <article>
-                    <div class="slike">
-                        <img src="images/beach.jpeg" alt="news1" />
-                    </div>
-                    <div class="tekst">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Laboriosam ducimus soluta accusamus nam deleniti id sunt ratione
-                            nemo nihil? Accusamus repellat pariatur veniam voluptatibus
-                            obcaecati debitis adipisci eum, cupiditate aliquid?
-                        </p>
-                    </div>
-                </article>
-                <article>
-                    <div class="slike">
-                        <img src="images/beach.jpeg" alt="news1" />
-                    </div>
-                    <div class="tekst">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Laboriosam ducimus soluta accusamus nam deleniti id sunt ratione
-                            nemo nihil? Accusamus repellat pariatur veniam voluptatibus
-                            obcaecati debitis adipisci eum, cupiditate aliquid?
-                        </p>
-                    </div>
-                </article>
-                <article>
-                    <div class="slike">
-                        <img src="images/beach.jpeg" alt="news1" />
-                    </div>
-                    <div class="tekst">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Laboriosam ducimus soluta accusamus nam deleniti id sunt ratione
-                            nemo nihil? Accusamus repellat pariatur veniam voluptatibus
-                            obcaecati debitis adipisci eum, cupiditate aliquid?
-                        </p>
-                    </div>
-                </article>
+                <?php
+                include 'connect.php';
+                define('UPLPATH', 'images/');
+                $query = "SELECT * FROM clanci WHERE arhiva = 0 AND kategorija = 'sport' LIMIT 3";
+                $result = mysqli_query($dbc, $query);
+                $i = 0;
+                while ($row = mysqli_fetch_array($result)) {
+                    echo '<article>';
+                    echo '<div class="slike">';
+                    echo '<img class="cover" src="' . UPLPATH . $row['slika'] . '" alt="news1" />';
+                    echo '</div>';
+                    echo '<h4 class="title">';
+                    echo '<a href="clanak.php?id=' . $row['id'] . '">';
+                    echo $row['naslov'];
+                    echo '</a></h4>';
+                    echo '<div class="tekst">';
+                    echo '<p>' . $row['sazetak'] . '</p>';
+                    echo '</div>';
+                    echo '</article>';
+                }
+                ?>
             </section>
         </div>
     </div>

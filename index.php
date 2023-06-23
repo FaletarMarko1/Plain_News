@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="script.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css" />
-  <title>PLain_News</title>
+  <title>Plain_News</title>
 </head>
 
 <body>
@@ -20,10 +20,10 @@
     <ul>
       <li><label class="logo">Plain_Newssssssssssss</label></li>
       <li class="active"><a class="active" href="#">HOME</a></li>
-      <li><a href="#">SPORT</a></li>
-      <li><a href="#">CULTURE</a></li>
-      <li><a href="#">SCIENCE</a></li>
-      <li><a href="#">ADMIN</a></li>
+      <li><a href="kategorija.php?id=sport">SPORT</a></li>
+      <li><a href="kategorija.php?id=culture">CULTURE</a></li>
+      <li><a href="kategorija.php?id=science">SCIENCE</a></li>
+      <li><a href="administrator.php">ADMIN</a></li>
     </ul>
   </nav>
 

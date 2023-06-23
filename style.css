@@ -114,6 +114,9 @@ img {
 .cover{
   object-fit: cover;
 }
+.slikaClanak{
+  height: 100%;
+}
 
 .tekst {
   width: 100%;
@@ -178,6 +181,7 @@ select {
   font-size: 30px;
   padding: 5px 0px 5px 5px;
   font-weight: 900;
+  word-break: break-all;
 }
 
 .footer {
@@ -209,7 +213,7 @@ select {
 
 
 
-@media (max-width: 1225px) {
+@media (max-width: 1170px) {
   article {
     flex: 40%;
     transition: 0.3s;

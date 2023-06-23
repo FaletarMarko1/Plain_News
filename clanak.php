@@ -1,3 +1,10 @@
+<?php
+include 'connect.php';
+define('UPLPATH', 'images/');
+$query = "SELECT * FROM clanci WHERE id=" . $_GET['id'];"";
+$result = mysqli_query($dbc, $query);
+$row = mysqli_fetch_array($result);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="script.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css" />
-  <title>PLain_News</title>
+  <title>Plain_News</title>
 </head>
 
 <body>
@@ -30,117 +37,26 @@
 
     <div class="container">
       <header>
-        <h1>NEWS: ova plaza je jako lijepa</h1>
+        <h1>NEWS: <?php echo "<span>".$row['naslov']."</span>"; ?></h1>
         <hr />
       </header>
       <section>
         <article>
           <div class="slike">
-            <img src="images/beach.jpeg" alt="news1" />
+          <?php echo '<img class="cover slikaClanak" src="' . UPLPATH . $row['slika'] . '" alt="news1" />';?>
           </div>
           <div class="tekst">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Laboriosam ducimus soluta accusamus nam deleniti id sunt ratione
-              nemo nihil? Accusamus repellat pariatur veniam voluptatibus
-              obcaecati debitis adipisci eum, cupiditate aliquid? Lorem ipsum
-              dolor sit amet consectetur adipisicing elit. Laboriosam ducimus
-              soluta accusamus nam deleniti id sunt ratione nemo nihil?
-              Accusamus repellat pariatur veniam voluptatibus obcaecati debitis
-              adipisci eum, cupiditate aliquid? Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Laboriosam ducimus soluta accusamus
-              nam deleniti id sunt ratione nemo nihil? Accusamus repellat
-              pariatur veniam voluptatibus obcaecati debitis adipisci eum,
-              cupiditate aliquid? Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Laboriosam ducimus soluta accusamus nam deleniti
-              id sunt ratione nemo nihil? Accusamus repellat pariatur veniam
-              voluptatibus obcaecati debitis adipisci eum, cupiditate aliquid?
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Laboriosam ducimus soluta accusamus nam deleniti id sunt ratione
-              nemo nihil? Accusamus repellat pariatur veniam voluptatibus
-              obcaecati debitis adipisci eum, cupiditate aliquid? Lorem ipsum
-              dolor sit amet consectetur adipisicing elit. Laboriosam ducimus
-              soluta accusamus nam deleniti id sunt ratione nemo nihil?
-              Accusamus repellat pariatur veniam voluptatibus obcaecati debitis
-              adipisci eum, cupiditate aliquid?
+              <?php
+                echo $row['sazetak'];
+              ?>
             </p>
-            <br />
+          </div>
+          <div class="tekst">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Laboriosam ducimus soluta accusamus nam deleniti id sunt ratione
-              nemo nihil? Accusamus repellat pariatur veniam voluptatibus
-              obcaecati debitis adipisci eum, cupiditate aliquid? Lorem ipsum
-              dolor sit amet consectetur adipisicing elit. Laboriosam ducimus
-              soluta accusamus nam deleniti id sunt ratione nemo nihil?
-              Accusamus repellat pariatur veniam voluptatibus obcaecati debitis
-              adipisci eum, cupiditate aliquid? Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Laboriosam ducimus soluta accusamus
-              nam deleniti id sunt ratione nemo nihil? Accusamus repellat
-              pariatur veniam voluptatibus obcaecati debitis adipisci eum,
-              cupiditate aliquid? Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Laboriosam ducimus soluta accusamus nam deleniti
-              id sunt ratione nemo nihil? Accusamus repellat pariatur veniam
-              voluptatibus obcaecati debitis adipisci eum, cupiditate aliquid?
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Laboriosam ducimus soluta accusamus nam deleniti id sunt ratione
-              nemo nihil? Accusamus repellat pariatur veniam voluptatibus
-              obcaecati debitis adipisci eum, cupiditate aliquid? Lorem ipsum
-              dolor sit amet consectetur adipisicing elit. Laboriosam ducimus
-              soluta accusamus nam deleniti id sunt ratione nemo nihil?
-              Accusamus repellat pariatur veniam voluptatibus obcaecati debitis
-              adipisci eum, cupiditate aliquid?
-            </p>
-            <br />
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Laboriosam ducimus soluta accusamus nam deleniti id sunt ratione
-              nemo nihil? Accusamus repellat pariatur veniam voluptatibus
-              obcaecati debitis adipisci eum, cupiditate aliquid? Lorem ipsum
-              dolor sit amet consectetur adipisicing elit. Laboriosam ducimus
-              soluta accusamus nam deleniti id sunt ratione nemo nihil?
-              Accusamus repellat pariatur veniam voluptatibus obcaecati debitis
-              adipisci eum, cupiditate aliquid? Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Laboriosam ducimus soluta accusamus
-              nam deleniti id sunt ratione nemo nihil? Accusamus repellat
-              pariatur veniam voluptatibus obcaecati debitis adipisci eum,
-              cupiditate aliquid? Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Laboriosam ducimus soluta accusamus nam deleniti
-              id sunt ratione nemo nihil? Accusamus repellat pariatur veniam
-              voluptatibus obcaecati debitis adipisci eum, cupiditate aliquid?
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Laboriosam ducimus soluta accusamus nam deleniti id sunt ratione
-              nemo nihil? Accusamus repellat pariatur veniam voluptatibus
-              obcaecati debitis adipisci eum, cupiditate aliquid? Lorem ipsum
-              dolor sit amet consectetur adipisicing elit. Laboriosam ducimus
-              soluta accusamus nam deleniti id sunt ratione nemo nihil?
-              Accusamus repellat pariatur veniam voluptatibus obcaecati debitis
-              adipisci eum, cupiditate aliquid?
-            </p>
-            <br />
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Laboriosam ducimus soluta accusamus nam deleniti id sunt ratione
-              nemo nihil? Accusamus repellat pariatur veniam voluptatibus
-              obcaecati debitis adipisci eum, cupiditate aliquid? Lorem ipsum
-              dolor sit amet consectetur adipisicing elit. Laboriosam ducimus
-              soluta accusamus nam deleniti id sunt ratione nemo nihil?
-              Accusamus repellat pariatur veniam voluptatibus obcaecati debitis
-              adipisci eum, cupiditate aliquid? Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Laboriosam ducimus soluta accusamus
-              nam deleniti id sunt ratione nemo nihil? Accusamus repellat
-              pariatur veniam voluptatibus obcaecati debitis adipisci eum,
-              cupiditate aliquid? Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Laboriosam ducimus soluta accusamus nam deleniti
-              id sunt ratione nemo nihil? Accusamus repellat pariatur veniam
-              voluptatibus obcaecati debitis adipisci eum, cupiditate aliquid?
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Laboriosam ducimus soluta accusamus nam deleniti id sunt ratione
-              nemo nihil? Accusamus repellat pariatur veniam voluptatibus
-              obcaecati debitis adipisci eum, cupiditate aliquid? Lorem ipsum
-              dolor sit amet consectetur adipisicing elit. Laboriosam ducimus
-              soluta accusamus nam deleniti id sunt ratione nemo nihil?
-              Accusamus repellat pariatur veniam voluptatibus obcaecati debitis
-              adipisci eum, cupiditate aliquid?
+              <?php
+                echo $row['tekst'];
+              ?>
             </p>
           </div>
         </article>
@@ -151,45 +67,26 @@
         <hr>
       </header>
       <section class="info">
-        <article>
-          <div class="slike">
-            <img src="images/beach.jpeg" alt="news1" />
-          </div>
-          <div class="tekst">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Laboriosam ducimus soluta accusamus nam deleniti id sunt ratione
-              nemo nihil? Accusamus repellat pariatur veniam voluptatibus
-              obcaecati debitis adipisci eum, cupiditate aliquid?
-            </p>
-          </div>
-        </article>
-        <article>
-          <div class="slike">
-            <img src="images/beach.jpeg" alt="news1" />
-          </div>
-          <div class="tekst">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Laboriosam ducimus soluta accusamus nam deleniti id sunt ratione
-              nemo nihil? Accusamus repellat pariatur veniam voluptatibus
-              obcaecati debitis adipisci eum, cupiditate aliquid?
-            </p>
-          </div>
-        </article>
-        <article>
-          <div class="slike">
-            <img src="images/beach.jpeg" alt="news1" />
-          </div>
-          <div class="tekst">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Laboriosam ducimus soluta accusamus nam deleniti id sunt ratione
-              nemo nihil? Accusamus repellat pariatur veniam voluptatibus
-              obcaecati debitis adipisci eum, cupiditate aliquid?
-            </p>
-          </div>
-        </article>
+        <?php
+        include 'connect.php';
+        $query = "SELECT * FROM clanci WHERE arhiva = 0 AND kategorija = 'sport' LIMIT 3";
+        $result = mysqli_query($dbc, $query);
+        $i = 0;
+        while ($row = mysqli_fetch_array($result)) {
+          echo '<article>';
+          echo '<div class="slike">';
+          echo '<img class="cover" src="' . UPLPATH . $row['slika'] . '" alt="news1" />';
+          echo '</div>';
+          echo '<h4 class="title">';
+          echo '<a href="clanak.php?id=' . $row['id'] . '">';
+          echo $row['naslov'];
+          echo '</a></h4>';
+          echo '<div class="tekst">';
+          echo '<p>' . $row['sazetak'] . '</p>';
+          echo '</div>';
+          echo '</article>';
+        }
+        ?>
       </section>
     </div>
   </div>
