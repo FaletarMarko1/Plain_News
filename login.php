@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,9 +81,8 @@
 
 <?php
 include 'connect.php';
-
+$_SESSION['username22'] = 'sa';
 if(isset($_POST['username']) && isset($_POST['password'])){
-    session_start();
     $username = $_POST['username'];
     $password = $_POST['password'];
 
@@ -98,8 +100,8 @@ if(isset($_POST['username']) && isset($_POST['password'])){
         echo 'Korisnik ne postoji!';
     }else{
         if(password_verify($password, $lozinka)){
-            $_SESSION['$username'] = $username;
-            $_SESSION['$razina'] = $razina;
+            $_SESSION['username'] = $username;
+            $_SESSION['razina'] = $razina;
             header("Location: index.php");
         }else{
             echo 'Pogrešna lozinka!';

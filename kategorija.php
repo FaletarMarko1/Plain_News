@@ -1,4 +1,14 @@
 <?php
+session_start();
+
+if (isset($_SESSION['username']) && isset($_SESSION['razina'])) {
+  $tekstNav = 'ADMIN';
+  $tekstNavLokacija = 'administrator.php';
+}else{
+  $tekstNav = 'LOGIN';
+  $tekstNavLokacija = 'login.php';
+}
+
 include 'connect.php';
 define('UPLPATH', 'images/');
 $kategorija = $_GET['id'];
@@ -31,7 +41,7 @@ $row = mysqli_fetch_array($result);
             <li class="<?php if ($kategorija == "sport") echo ' active'; ?>"><a class="<?php if ($kategorija == "sport") echo ' active'; ?>" href="kategorija.php?id=sport">SPORT</a></li>
             <li class="<?php if ($kategorija == "culture") echo ' active'; ?>"><a class="<?php if ($kategorija == "culture") echo ' active'; ?>" href="kategorija.php?id=culture">CULTURE</a></li>
             <li class="<?php if ($kategorija == "science") echo ' active'; ?>"><a class="<?php if ($kategorija == "science") echo ' active'; ?>" href="kategorija.php?id=science">SCIENCE</a></li>
-            <li ><a href="administrator.php">ADMIN</a></li>
+            <li><a href="<?php echo $tekstNavLokacija; ?>"><?php echo $tekstNav; ?></a></li>
         </ul>
     </nav>
 

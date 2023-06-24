@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+if (isset($_SESSION['username']) && isset($_SESSION['razina'])) {
+  $tekstNav = 'ADMIN';
+  $tekstNavLokacija = 'administrator.php';
+}else{
+  $tekstNav = 'LOGIN';
+  $tekstNavLokacija = 'login.php';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +20,6 @@
   <link rel="stylesheet" type="text/css" href="style.css" />
   <title>Plain_News</title>
 </head>
-
 <body>
   <img id="logo22" src="images/PNEWS.png" alt="logo"
     style="position: fixed; z-index: 100; width: 180px; height: 100px; margin-left: 15%; margin-top: -50px;" />
@@ -23,7 +33,7 @@
       <li><a href="kategorija.php?id=sport">SPORT</a></li>
       <li><a href="kategorija.php?id=culture">CULTURE</a></li>
       <li><a href="kategorija.php?id=science">SCIENCE</a></li>
-      <li><a href="administrator.php">ADMIN</a></li>
+      <li><a href="<?php echo $tekstNavLokacija; ?>"><?php echo $tekstNav; ?></a></li>
     </ul>
   </nav>
 
