@@ -132,6 +132,55 @@ img {
   font-size: 10px;
 }
 
+
+
+
+ul.vijestiIspis {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  font-size: 100%;
+  padding-left: 10px;
+  padding-top: 20px;
+}
+
+li.vijestIspis {
+  flex-basis: 14%;
+  padding: 10px;
+}
+.naslovMali{
+  min-width: 130px;
+}
+.kategorijaMala{
+  min-width: 70px;
+}
+
+li.vijestIspis h5,
+li.vijestIspis p,
+li.vijestIspis h4 {
+  margin: 0;
+}
+
+li.vijestIspis h5 {
+  font-weight: light;
+}
+li.vijestIspis h4 {
+  font-weight: bold;
+}
+
+li.vijestIspis p {
+  margin-left: 10px;
+}
+
+
+
+
+
+
+
+
 header {
   padding: 20px 20px 0px 20px;
 }
