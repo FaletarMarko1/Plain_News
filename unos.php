@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="script.js"></script>
+    <script type="text/javascript" src="script.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <title>Plain_News</title>
 </head>
@@ -41,46 +41,51 @@
 
         <form action="skripta.php" method="POST" enctype="multipart/form-data">
             <div class="form-item">
-                <label for="title">Naslov vijesti</label>
+                <label for="titleId">Naslov vijesti</label>
                 <div class="form-field">
-                    <input type="text" name="title" class="form-field-textual" />
+                    <input type="text" name="title" id="titleId" class="form-field-textual" />
                 </div>
+                <span id="porukaTitle" class="bojaPoruke"></span>
             </div>
             <div class="form-item">
-                <label for="about">Kratki sadržaj vijesti (do 50 znakova)</label>
+                <label for="aboutId">Kratki sadržaj vijesti (do 50 znakova)</label>
                 <div class="form-field">
-                    <textarea name="about" id="" cols="30" rows="10" class="form-field-textual"></textarea>
+                    <textarea name="about" id="aboutId" cols="30" rows="10" class="form-field-textual"></textarea>
                 </div>
+                <span id="porukaAbout" class="bojaPoruke"></span>
             </div>
             <div class="form-item">
-                <label for="content">Sadržaj vijesti</label>
+                <label for="contentId">Sadržaj vijesti</label>
                 <div class="form-field">
-                    <textarea name="content" id="" cols="30" rows="10" class="form-field-textual"></textarea>
+                    <textarea name="content" id="contentId" cols="30" rows="10" class="form-field-textual"></textarea>  
                 </div>
+                <span id="porukaContent" class="bojaPoruke"></span>
             </div>
             <div class="form-item">
-                <label for="slika">Slika: </label>
+                <label for="slikaId">Slika: </label>
                 <div class="form-field">
-                    <input type="file" name="slika" accept="image/jpg,image/png,image/jpeg" required />
+                    <input type="file" name="slika" id="slikaId" accept="image/jpg,image/png,image/jpeg" required /> 
                 </div>
+                <span id="porukaSlika" class="bojaPoruke"></span>
             </div>
             <div class="form-item">
-                <label for="category">Kategorija vijesti:</label>
+                <label for="categoryId">Kategorija vijesti:</label>
                 <div class="form-field">
-                    <select name="category" id="category" class="form-field-textual">
+                    <select name="category" id="categoryId" class="form-field-textual">
                         <option value="sport">SPORT</option>
                         <option value="culture">CULTURE</option>
                         <option value="science">SCIENCE</option>
                     </select>
                 </div>
+                <span id="porukaCategory" class="bojaPoruke"></span>
             </div>
             <div class="form-item checkbox">
-                <label for="archive">Stavi u arhivu:</label>
-                <input type="checkbox" name="archive" />
+                <label for="acrhiveId">Stavi u arhivu:</label>
+                <input type="checkbox" name="archive" id="acrhiveId" />
             </div>
             <div class="form-item buttons">
                 <input name="delete" type="reset" value="Poništi" />
-                <input name="submit" type="submit" value="Submit" />
+                <input name="submit" id="formSlanje" type="submit" value="Submit">
             </div>
         </form>
     </div>
@@ -106,6 +111,7 @@
             }
         });
     </script>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 
 </html>

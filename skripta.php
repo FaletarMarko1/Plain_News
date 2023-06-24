@@ -67,10 +67,7 @@ if (
 if ($uploadOk == 0) {
     // if everything is ok, try to upload file
 } else {
-    if (move_uploaded_file($_FILES["slika"]["tmp_name"], $target_file)) {
-        echo "The file " . htmlspecialchars(basename($_FILES["slika"]["name"])) . " has been uploaded.";
-    } else {
-    }
+    if (move_uploaded_file($_FILES["slika"]["tmp_name"], $target_file)) {}
 }
 ?>
 
@@ -96,7 +93,7 @@ if ($uploadOk == 0) {
             <label class="dropLogo">Plain_News</label>
             <ul>
                 <li><label class="logo">Plain_Newssssssssssss</label></li>
-                <li class="active"><a class="active" href="#">HOME</a></li>
+                <li class="active"><a class="active" href="index.php">HOME</a></li>
                 <li><a href="kategorija.php?id=sport">SPORT</a></li>
                 <li><a href="kategorija.php?id=culture">CULTURE</a></li>
                 <li><a href="kategorija.php?id=science">SCIENCE</a></li>
