@@ -32,7 +32,143 @@
       <h1>ADMINISTRACIJA</h1>
       <hr>
     </header>
+    <?php
+    include 'connect.php';
+    define('UPLPATH', 'images/');
+    $query = "SELECT * FROM clanci";
+    $result = mysqli_query($dbc, $query);
+    while ($row = mysqli_fetch_array($result)) {
+      echo '<form class="izmjene" action="" method="POST" enctype="multipart/form-data">
+        <div class="form-item">
+            <label for="title">Naslov vjesti:</label>
+            <div class="form-field">
+                <input type="text" name="title" class="form-field-textual" value="' . $row['naslov'] . '">
+            </div>
+        </div>
+        <div class="form-item">
+            <label for="about">Kratki sadržaj vijesti (do 50 znakova):</label>
+            <div class="form-field">
+                <textarea name="about" id="" cols="30" rows="10" class="form-field-textual">' . $row['sazetak'] . '</textarea>
+            </div>
+        </div>
+        <div class="form-item">
+            <label for="content">Sadržaj vijesti:</label>
+            <div class="form-field">
+                <textarea name="content" id="" cols="30" rows="10" class="form-field-textual">' . $row['tekst'] . '</textarea>
+            </div>
+        </div>
+        <div class="form-item">
+            <label for="slika">Slika: </label>
+            <div class="form-field">
+                <input type="file" id="slika" value="' . $row['slika'] . '" name="slika"/> <br>
+                <img src="' . UPLPATH . $row['slika'] . '" style="width:300px; height:150px;">
+            </div>
+        </div>
+        <div class="form-item">
+            <label for="category">Kategorija vijesti:</label>
+            <div class="form-field">
+                <select name="category" id="category" class="form-field-textual" value="' . $row['kategorija'] . '">
+                    <option value="sport">SPORT</option>
+                    <option value="culture">CULTURE</option>
+                    <option value="science">SCIENCE</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-item checkbox">
+            <label for="archive">Stavi u arhivu:</label>';
+      if ($row['arhiva'] == 0) {
+        echo '<input type="checkbox" name="archive" id="archive"/>';
+      } else {
+        echo '<input type="checkbox" name="archive" id="archive" checked/>';
+      }
+      echo '</div>
+        <div class="form-item buttons">
+            <input type="hidden" name="id" class="form-field-textual" value="' . $row['id'] . '">
+            <button type="reset" name="delete" value="Poništi">Poništi promjene</button>
+            <button type="submit" name="submit" value="Submit">Submit</button>
+            <button type="submit" name="izbrisi" value="Delete">Delete</button>
+        </div>
+        </form>
+        <hr>
+        ';
+    }
 
+    if (isset($_POST['izbrisi'])) {
+      $id = $_POST['id'];
+      $query = "DELETE FROM clanci WHERE id=$id";
+      $result = mysqli_query($dbc, $query);
+      echo '<meta http-equiv="refresh" content="1">';
+    }
+
+    if (isset($_POST['submit'])) {
+      $slika = $_FILES['slika']['name'];
+      $naslov = $_POST['title'];
+      $about = $_POST['about'];
+      $content = $_POST['content'];
+      $category = $_POST['category'];
+      $id = $_POST['id'];
+      if (isset($_POST['archive'])) {
+        $archive = 1;
+      } else {
+        $archive = 0;
+      }
+      if ($slika == '') {
+        $query = "SELECT slika FROM clanci WHERE id='$id'";
+        $result = mysqli_query($dbc, $query);
+        $row = mysqli_fetch_array($result);
+        $slika = $row['slika'];
+      }
+
+      $query = "UPDATE clanci SET naslov='$naslov', sazetak='$about', tekst='$content', slika='$slika', kategorija='$category', arhiva='$archive' WHERE id='$id'";
+      $result = mysqli_query($dbc, $query);
+
+      $target_dir = "images/";
+      $target_file = $target_dir . basename($_FILES["slika"]["name"]);
+      $slikaName = ($_FILES["slika"]["name"]);
+      $uploadOk = 1;
+      $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+      // Check if image file is a actual image or fake image
+      if (isset($_POST["submit"])) {
+        $check = getimagesize($_FILES["slika"]["tmp_name"]);
+        if ($check !== false) {
+          $uploadOk = 1;
+        } else {
+          $uploadOk = 0;
+        }
+      }
+
+      // Check if file already exists
+      if (file_exists($target_file)) {
+        $uploadOk = 0;
+      }
+
+      // Check file size
+      if ($_FILES["slika"]["size"] > 5000000) {
+        $uploadOk = 0;
+      }
+
+      // Allow certain file formats
+      if (
+        $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+        && $imageFileType != "gif"
+      ) {
+        $uploadOk = 0;
+      }
+
+      // Check if $uploadOk is set to 0 by an error
+      if ($uploadOk == 0) {
+        // if everything is ok, try to upload file
+      } else {
+        if (move_uploaded_file($_FILES["slika"]["tmp_name"], $target_file)) {
+          echo "The file " . htmlspecialchars(basename($_FILES["slika"]["name"])) . " has been uploaded.";
+        } else {
+        }
+      }
+
+      echo '<meta http-equiv="refresh" content="1">';
+    }
+    ?>
   </div>
 
   <div class="footer">

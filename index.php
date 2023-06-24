@@ -64,7 +64,7 @@
     <section>
       <?php
       include 'connect.php';
-      $query = "SELECT * FROM clanci WHERE arhiva = 0 AND kategorija = 'sport' LIMIT 3";
+      $query = "SELECT * FROM clanci WHERE arhiva = 0 AND kategorija = 'culture' LIMIT 3";
       $result = mysqli_query($dbc, $query);
       $i = 0;
       while ($row = mysqli_fetch_array($result)) {
@@ -91,7 +91,7 @@
     <section>
       <?php
       include 'connect.php';
-      $query = "SELECT * FROM clanci WHERE arhiva = 0 AND kategorija = 'sport' LIMIT 3";
+      $query = "SELECT * FROM clanci WHERE arhiva = 0 AND kategorija = 'science' LIMIT 3";
       $result = mysqli_query($dbc, $query);
       $i = 0;
       while ($row = mysqli_fetch_array($result)) {
