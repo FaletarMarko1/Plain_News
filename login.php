@@ -47,7 +47,7 @@
             </div>
             <div class="form-item buttons">
                 <input name="Login" id="loginForma" type="submit" value="Login" />
-                <input name="Registracija" id="registracijaForma" type="submit" value="Registracija">
+                <input name="Registracija" id="registracijaForma" type="button" onclick="location.href='registracija.php'" value="Registracija">
             </div>
         </form>
     </div>
@@ -77,11 +77,34 @@
 </html>
 
 <?php
+include 'connect.php';
+
 if(isset($_POST['username']) && isset($_POST['password'])){
+    session_start();
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $hashed_password = password_hash($password, CRYPT_BLOWFISH);
 
-    $query = "SELECT * FROM users WHERE username = '$username' AND password = '$hashed_password'";
+    $sql = "SELECT kime, lozinka, razina FROM korisnik WHERE kime = ?;";
+    $stmt = mysqli_stmt_init($dbc);
+    if (mysqli_stmt_prepare($stmt, $sql)) {
+        mysqli_stmt_bind_param($stmt, 's', $username);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_store_result($stmt);
+    }
+    mysqli_stmt_bind_result($stmt, $kime, $lozinka, $razina);
+    mysqli_stmt_fetch($stmt);
+
+    if($kime == ''){
+        echo 'Korisnik ne postoji!';
+    }else{
+        if(password_verify($password, $lozinka)){
+            $_SESSION['$username'] = $username;
+            $_SESSION['$razina'] = $razina;
+            header("Location: index.php");
+        }else{
+            echo 'Pogrešna lozinka!';
+        }
+    }
 }
+mysqli_close($dbc);
 ?>

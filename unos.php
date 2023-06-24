@@ -38,7 +38,6 @@
             <h1>NOVA VIJEST</h1>
             <hr />
         </header>
-
         <form action="skripta.php" method="POST" enctype="multipart/form-data">
             <div class="form-item">
                 <label for="titleId">Naslov vijesti</label>
@@ -85,7 +84,7 @@
             </div>
             <div class="form-item buttons">
                 <input name="delete" type="reset" value="Poništi" />
-                <input name="submit" id="formSlanje" type="submit" value="Submit">
+                <input name="submit" id="formSlanje" type="submit" value="Submit"/>
             </div>
         </form>
     </div>
