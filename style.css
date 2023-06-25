@@ -150,7 +150,7 @@ img {
 .adminContent2{
   display: flex;
   flex-wrap: wrap;
-  gap: 50px;
+  gap: 20px;
 }
 .polaSirine{
   flex-basis: 50%;
@@ -163,6 +163,9 @@ table{
 }
 tr{
   height: 40px;
+}
+.obicniKorisnik{
+  padding: 20px;
 }
 
 .button-6 {

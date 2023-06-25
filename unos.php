@@ -25,11 +25,11 @@
         <label class="dropLogo">Plain_News</label>
         <ul>
             <li><label class="logo">Plain_Newssssssssssss</label></li>
-            <li class="active"><a class="active" href="index.php">HOME</a></li>
+            <li><a href="index.php">HOME</a></li>
             <li><a href="kategorija.php?id=sport">SPORT</a></li>
             <li><a href="kategorija.php?id=culture">CULTURE</a></li>
             <li><a href="kategorija.php?id=science">SCIENCE</a></li>
-            <li><a href="administrator.php">ADMIN</a></li>
+            <li class="active"><a class="active" href="administrator.php">ADMIN</a></li>
         </ul>
     </nav>
 

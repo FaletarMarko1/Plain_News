@@ -77,8 +77,9 @@ document.getElementById("formSlanje").onclick = function (event) {
   }
 
   let poljeCategory = document.getElementById("categoryId");
+  let selected = document.getElementById("categoryId").value;
 
-  if (!document.getElementById("categoryId").selectedIndex) {
+  if (!selected) {
     salji = false;
     poljeCategory.style.border = "1px dashed red";
     document.getElementById("porukaCategory").innerHTML =

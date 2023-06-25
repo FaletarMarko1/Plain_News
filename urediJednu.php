@@ -142,14 +142,16 @@
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
         // Check if image file is a actual image or fake image
-        if (isset($_POST["submit"])) {
-          $check = getimagesize($_FILES["slika"]["tmp_name"]);
-          if ($check !== false) {
-            $uploadOk = 1;
-          } else {
-            $uploadOk = 0;
+        if ($_FILES["slika"]["name"]) {
+            if (isset($_POST["submit"])) {
+              $check = getimagesize($_FILES["slika"]["tmp_name"]);
+              if ($check !== false) {
+                $uploadOk = 1;
+              } else {
+                $uploadOk = 0;
+              }
+            }else{}
           }
-        }
 
         // Check if file already exists
         if (file_exists($target_file)) {
