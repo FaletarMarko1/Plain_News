@@ -1,10 +1,19 @@
 <?php
+session_start();
 include 'connect.php';
 define('UPLPATH', 'images/');
 $query = "SELECT * FROM clanci WHERE id=" . $_GET['id'];
 "";
 $result = mysqli_query($dbc, $query);
 $row = mysqli_fetch_array($result);
+
+if (isset($_SESSION['username']) && isset($_SESSION['razina'])) {
+  $tekstNav = 'ADMIN';
+  $tekstNavLokacija = 'administrator.php';
+}else{
+  $tekstNav = 'LOGIN';
+  $tekstNavLokacija = 'login.php';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,11 +37,11 @@ $row = mysqli_fetch_array($result);
       <label class="dropLogo">Plain_News</label>
       <ul>
         <li><label class="logo">Plain_Newssssssssssss</label></li>
-        <li class="active"><a class="active" href="index.php">HOME</a></li>
+        <li class=""><a class="" href="index.php">HOME</a></li>
         <li><a href="kategorija.php?id=sport">SPORT</a></li>
         <li><a href="kategorija.php?id=culture">CULTURE</a></li>
         <li><a href="kategorija.php?id=science">SCIENCE</a></li>
-        <li><a href="administrator.php">ADMIN</a></li>
+        <li><a href="<?php echo $tekstNavLokacija; ?>"><?php echo $tekstNav; ?></a></li>
       </ul>
     </nav>
 
@@ -98,7 +107,7 @@ $row = mysqli_fetch_array($result);
   <div class="footer">
     <ul>
       <li><a href="#">Copyright 2023 Marko Faletar</a></li>
-      <li><a href="#">Github [faletar.marko@gmail.com]</a></li>
+      <li><a href="https://github.com/FaletarMarko1">Github [faletar.marko@gmail.com]</a></li>
     </ul>
   </div>
 

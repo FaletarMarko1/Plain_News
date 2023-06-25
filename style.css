@@ -57,6 +57,10 @@ label.dropLogo {
 #logo22 {
   opacity: 1;
 }
+a{
+  text-decoration: none;
+  color: black;
+}
 a.active,
 a:hover {
   color: red;
@@ -166,6 +170,10 @@ tr{
 }
 .obicniKorisnik{
   padding: 20px;
+}
+
+.kontentos{
+  white-space: pre-wrap;
 }
 
 .button-6 {

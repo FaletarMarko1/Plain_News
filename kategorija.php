@@ -48,7 +48,7 @@ $row = mysqli_fetch_array($result);
     <div class="container">
         <header>
             <h1>
-                <?php echo strtoupper($row['kategorija']); ?>
+                <?php if(isset($row['kategorija'])){echo strtoupper($row['kategorija']);}else{echo 'Ne postoje vijesti u kategoriji!';} ?>
             </h1>
             <hr>
         </header>
@@ -78,7 +78,7 @@ $row = mysqli_fetch_array($result);
     <div class="footer">
         <ul>
             <li><a href="#">Copyright 2023 Marko Faletar</a></li>
-            <li><a href="#">Github [faletar.marko@gmail.com]</a></li>
+            <li><a href="https://github.com/FaletarMarko1">Github [faletar.marko@gmail.com]</a></li>
         </ul>
     </div>
 

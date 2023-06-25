@@ -56,7 +56,7 @@
             <div class="form-item">
                 <label for="contentId">Sadržaj vijesti</label>
                 <div class="form-field">
-                    <textarea name="content" id="contentId" cols="30" rows="10" class="form-field-textual"></textarea>  
+                    <textarea name="content" id="contentId" cols="30" rows="10" class="kontentos"></textarea>  
                 </div>
                 <span id="porukaContent" class="bojaPoruke"></span>
             </div>
@@ -92,7 +92,7 @@
     <div class="footer">
         <ul>
             <li><a href="#">Copyright 2023 Marko Faletar</a></li>
-            <li><a href="#">Github [faletar.marko@gmail.com]</a></li>
+            <li><a href="https://github.com/FaletarMarko1">Github [faletar.marko@gmail.com]</a></li>
         </ul>
     </div>
 

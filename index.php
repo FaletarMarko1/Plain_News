@@ -125,7 +125,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['razina'])) {
   <div class="footer">
     <ul>
       <li><a href="#">Copyright 2023 Marko Faletar</a></li>
-      <li><a href="#">Github [faletar.marko@gmail.com]</a></li>
+      <li><a href="https://github.com/FaletarMarko1">Github [faletar.marko@gmail.com]</a></li>
     </ul>
   </div>
 
