@@ -97,7 +97,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     mysqli_stmt_fetch($stmt);
 
     if($kime == ''){
-        echo 'Korisnik ne postoji!';
+        echo '<script>alert("Krivi username ili lozinka!")</script>';
     }else{
         if(password_verify($password, $lozinka)){
             $_SESSION['username'] = $username;
@@ -106,7 +106,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
             $_SESSION['prezime'] = $prezime;
             header("Location: index.php");
         }else{
-            echo 'Pogrešna lozinka!';
+            echo '<script>alert("Krivi username ili lozinka!")</script>';
         }
     }
 }

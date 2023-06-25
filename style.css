@@ -326,6 +326,13 @@ select {
   padding: 5px;
 }
 
+.sazetakP{
+  font-size: 30px;
+}
+.glavniP{
+  font-size: 22px;
+}
+
 
 .title{
   text-align: left;

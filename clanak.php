@@ -58,14 +58,14 @@ if (isset($_SESSION['username']) && isset($_SESSION['razina'])) {
             <?php echo '<img class="cover slikaClanak" src="' . UPLPATH . $row['slika'] . '" alt="news1" />'; ?>
           </div>
           <div class="tekst">
-            <p>
+            <p class="sazetakP">
               <?php
               echo $row['sazetak'];
               ?>
             </p>
           </div>
           <div class="tekst">
-            <p>
+            <p class="glavniP">
               <?php
               echo $row['tekst'];
               ?>

@@ -178,8 +178,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['pass
     $result = mysqli_query($dbc, $query);
 
     if (mysqli_num_rows($result) > 0) {
-        echo 'Korisnik ime već postoji!';
-        exit();
+        echo '<script>alert("Korisnik s tim imenom već postoji!")</script>';
     } else {
         $hashed_password = password_hash($password, CRYPT_BLOWFISH);
 
