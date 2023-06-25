@@ -30,7 +30,6 @@
   <div class="container">
     <header class="adminHeader">
       <h1>ADMINISTRACIJA</h1>
-      <button class="logout" name="logoutBtn"><a href="logout.php">Logout</a></button>
     </header>
     <hr>
     <?php
@@ -40,7 +39,7 @@
       include 'connect.php';
 
       define('UPLPATH', 'images/');
-      $query = "SELECT * FROM clanci";
+      $query = "SELECT * FROM clanci WHERE id=" . $_GET['id'];
       $result = mysqli_query($dbc, $query);
       while ($row = mysqli_fetch_array($result)) {
         $sportCategory = '';
@@ -111,7 +110,7 @@
         $id = $_POST['id'];
         $query = "DELETE FROM clanci WHERE id=$id";
         $result = mysqli_query($dbc, $query);
-        echo '<meta http-equiv="refresh" content="1"/>';
+        echo '<meta http-equiv="refresh" content="0; URL=adminPrikaz.php">';
       }
 
       if (isset($_POST['submit'])) {

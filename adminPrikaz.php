@@ -28,15 +28,30 @@
     </nav>
 
     <div class="container">
-        <header>
+        <header class="adminHeader">
             <h1>ADMINISTRACIJA</h1>
-            <hr>
+            <button class="button-6" name="logoutBtn"><a href="logout.php">Logout</a></button>
+
         </header>
+        <hr>
+
         <?php
+        session_start();
+        if ($_SESSION['razina'] == '1') {
+            $adminos = 'Superadmin';
+        } else {
+            $adminos = 'Obicni user';
+        }
         include 'connect.php';
         define('UPLPATH', 'images/');
         $query = "SELECT * FROM clanci";
         $result = mysqli_query($dbc, $query);
+        echo '<div class="adminContent">';
+        echo '<div class="polaSirine">';
+        echo '<div class="adminContent2">
+        <div><h2>Vijesti:</h2></div>
+        <div><button class="prikazSvega button-6" name="prikazSvegaBtn"><a href="administrator.php">Prikazi sve</a></button></div></div>
+        ';
         while ($row = mysqli_fetch_array($result)) {
             $sportCategory = '';
             $cultureCategory = '';
@@ -51,30 +66,66 @@
             echo '
             <ul class="vijestiIspis">
                 <li class="vijestIspis">
-                <h4>Id:&nbsp'.$row['id'].'</h4>
-                </li>
-                <li class="vijestIspis">
                 <h5>Naslov vijesti:&nbsp</h5>
                 </li>
                 <li class="vijestIspis naslovMali">
-                <p>'.substr($row['naslov'],0,10).'</p>
-                </li>
-                <li class="vijestIspis">
-                <h5>Kategorija:&nbsp</h5>
-                </li>
-                <li class="vijestIspis kategorijaMala">
-                <p>'.$row['kategorija'].'</p>
+                <p>' . substr($row['naslov'], 0, 10) . '</p>
                 </li>
                 <li class="vijestIspis">
                 <h5>Arhiva:&nbsp</h5>
                 </li>
                 <li class="vijestIspis">
-                <p>'.$row['arhiva'].'</p>
+                <p>' . $row['arhiva'] . '</p>
                 </li>
+                <li class="vijestIspis">
+                <button class=""><a href="urediJednu.php?id=' . $row['id'] . '">Uredi</a></button>
+                <li/>
             </ul>
             <hr>
             ';
         }
+        echo '</div>';
+        echo '<div class="polaSirine">
+        <h2>Podatci o korisniku:</h2>
+        <table class="podatciKorisnik">
+        <tr>
+            <td><h3>Korisnik:</h3></td>
+            <td><h3>' . $_SESSION['username'] . '</h3></td>
+        </tr>
+        <tr>
+            <td><p>Ime:</p></td>
+            <td><p>' . $_SESSION['ime'] . '</p></td>
+        </tr>
+        <tr>
+            <td><p>Prezime:</p></td>
+            <td><p>' . $_SESSION['prezime'] . '</p></td>
+        </tr>
+        <tr>
+            <td><p>Razina:</p></td>
+            <td><p>' . $_SESSION['razina'] . '</p></td>
+        </tr>
+        <tr>
+            <td><p>Ovlasti:</p></td>
+            <td><p>' . $adminos . '</p></td>
+        </tr>
+        </table>
+
+        <h2>Registrirani korisnici:</h2>
+        <table class="podatciRegistrirani">';
+
+        $query2 = "SELECT * FROM korisnik";
+        $result2 = mysqli_query($dbc, $query2);
+        while ($row2 = mysqli_fetch_array($result2)) {
+            echo '
+            <tr>
+            <td><p>Korisnik:</p></td>
+            <td><p>' . $row2['kime'] . '</p></td>
+            </tr>';
+        }
+        echo '</table><div/>';
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
 
         if (isset($_POST['izbrisi'])) {
             $id = $_POST['id'];
@@ -144,7 +195,6 @@
                 // if everything is ok, try to upload file
             } else {
                 if (move_uploaded_file($_FILES["slika"]["tmp_name"], $target_file)) {
-                    echo "The file " . htmlspecialchars(basename($_FILES["slika"]["name"])) . " has been uploaded.";
                 } else {
                 }
             }
@@ -172,8 +222,7 @@
                 //odblokira scroll kada je zatvoren dropdown menu
                 document.querySelector("body").style.overflowX = "visible";
                 document.querySelector("body").style.overflowY = "visible";
-            }
-        });
+            }     });
     </script>
 </body>
 

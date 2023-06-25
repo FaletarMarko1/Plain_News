@@ -86,14 +86,14 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql = "SELECT kime, lozinka, razina FROM korisnik WHERE kime = ?;";
+    $sql = "SELECT kime, lozinka, razina, ime, prezime FROM korisnik WHERE kime = ?;";
     $stmt = mysqli_stmt_init($dbc);
     if (mysqli_stmt_prepare($stmt, $sql)) {
         mysqli_stmt_bind_param($stmt, 's', $username);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_store_result($stmt);
     }
-    mysqli_stmt_bind_result($stmt, $kime, $lozinka, $razina);
+    mysqli_stmt_bind_result($stmt, $kime, $lozinka, $razina, $ime, $prezime);
     mysqli_stmt_fetch($stmt);
 
     if($kime == ''){
@@ -102,6 +102,8 @@ if(isset($_POST['username']) && isset($_POST['password'])){
         if(password_verify($password, $lozinka)){
             $_SESSION['username'] = $username;
             $_SESSION['razina'] = $razina;
+            $_SESSION['ime'] = $ime;
+            $_SESSION['prezime'] = $prezime;
             header("Location: index.php");
         }else{
             echo 'Pogrešna lozinka!';
